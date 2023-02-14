@@ -4,7 +4,6 @@ import CommentAdd from "./CommentAdd";
 
 class CommentArea extends Component {
   state = {
-    elementID: this.props.elementID,
     commentRes: [],
   };
 

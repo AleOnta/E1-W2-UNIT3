@@ -2,10 +2,6 @@ import { Component } from "react";
 import { Col, Card } from "react-bootstrap";
 
 class SingleBookAsClass extends Component {
-  state = {
-    selected: false,
-  };
-
   render() {
     return (
       <>
@@ -17,7 +13,7 @@ class SingleBookAsClass extends Component {
             this.props.status(this.props.data.asin);
           }}
         >
-          <Card className={this.state.selected === true ? "active" : "inactive"}>
+          <Card className={this.props.data.asin === this.props.currentElement ? "active" : "inactive"}>
             <Card.Img variant="top" src={this.props.data.img} className="cardImage" />
             <Card.Body>
               <Card.Title className="cardTitle">{this.props.data.title}</Card.Title>

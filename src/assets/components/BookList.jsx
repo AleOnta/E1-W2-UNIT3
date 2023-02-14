@@ -24,7 +24,17 @@ class BookList extends Component {
   render() {
     return (
       <>
-        <input type="text" className="mb-3" onChange={(event) => this.filterBookList(event)} />
+        <Row className="align-items-center justify-content-center mb-3">
+          <label style={{ fontSize: 1 + "em", backgroundColor: "inherit" }} className="m-0">
+            Cerca i tuoi libri:
+          </label>
+          <input
+            type="text"
+            className="m-0"
+            placeholder="The witcher, Eragon..."
+            onChange={(event) => this.filterBookList(event)}
+          />
+        </Row>
         <Row className="justify-content-center">
           <Col xs={8}>
             <Row>
@@ -33,7 +43,14 @@ class BookList extends Component {
                   return books.title.toLowerCase().includes(this.state.query.toLocaleLowerCase());
                 })
                 .map((book) => {
-                  return <SingleBookAsClass key={book.asin} data={book} status={this.asinRevealer} />;
+                  return (
+                    <SingleBookAsClass
+                      key={book.asin}
+                      data={book}
+                      status={this.asinRevealer}
+                      currentElement={this.state.currentElement}
+                    />
+                  );
                 })}
             </Row>
           </Col>
